@@ -1,4 +1,3 @@
-const { search } = require('./api/rotas/fornecedores');
 const Fornecedor = require('./api/rotas/fornecedores/Fornecedor');
 const ValorNaoSuportado = require('./erros/ValorNaoSuportado');
 
@@ -11,7 +10,7 @@ class Serializador{
     }
 
     serializar(dados) {
-        if(this.contentType === 'application/JSON'){
+        if(this.contentType === 'application/json'){
             return this.json(dados);
         }
 
@@ -20,7 +19,7 @@ class Serializador{
     }
 }
 
-class SerializadorFornecedor extends Fornecedor{
+class SerializadorFornecedor extends Serializador{
     constructor(contentType){
         super()
         this.contentType = contentType;
